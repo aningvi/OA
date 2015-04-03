@@ -5,6 +5,7 @@ import java.lang.reflect.ParameterizedType;
 import javax.annotation.Resource;
 
 import vi.aning.oa.service.DepartmentService;
+import vi.aning.oa.service.PrivilegeService;
 import vi.aning.oa.service.RoleService;
 import vi.aning.oa.service.UserService;
 
@@ -18,6 +19,8 @@ public abstract class BaseAction<T> extends ActionSupport implements ModelDriven
 	protected RoleService roleService;
 	@Resource
 	protected UserService userService;
+	@Resource
+	protected PrivilegeService privilegeService;
 	protected T model;
 	
 	public BaseAction() {

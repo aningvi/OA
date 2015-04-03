@@ -26,6 +26,7 @@
 	<mapping resource="vi/aning/oa/domain/User.hbm.xml" />
 	<mapping resource="vi/aning/oa/domain/Role.hbm.xml" />
 	<mapping resource="vi/aning/oa/domain/Department.hbm.xml" />
+	<mapping resource="vi/aning/oa/domain/Privilege.hbm.xml" />
 
 
 </session-factory>

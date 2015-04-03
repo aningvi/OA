@@ -44,8 +44,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td>
 						<s:a action="role_delete?id=%{id}"  onclick="return confirm('确定删除?')" >删除</s:a>
     					<s:a action="role_editUI?id=%{id}">更改</s:a>
-						<a href="setPrivilegeUI.html">设置权限</a>
-					</td>
+						<s:a action="role_setPrivilegeUI?id=%{id}">设置权限</s:a>
+					</td>    
 				</tr>
 			</s:iterator>
         </tbody>
