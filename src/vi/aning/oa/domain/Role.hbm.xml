@@ -3,13 +3,14 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="cn.itcast.oa.domain">
+<hibernate-mapping package="vi.aning.oa.domain">
 
-	<class name="User" table="itcast_user">
+	<class name="Role" table="tb_role">
 		<id name="id">
             <generator class="native"/>
 		</id>
 		<property name="name" />
+		<property name="description" />
 	</class>
 	
 </hibernate-mapping>
