@@ -46,9 +46,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <tbody id="TableData" class="dataContainer" datakey="departmentList">
         <s:iterator value="#departmentList">
 			<tr class="TableDetail1 template">
-				<td>${name}&nbsp;</td>
+				<td><s:a action="department_list?parentId=%{id}">${name}&nbsp;</s:a></td>
+				<td>${parent.name}&nbsp;</td>
 				<td>${description}&nbsp;</td>
-				<td><s:a onClick="return window.confirm('这将删除所有的下级部门，您确定要删除吗？')"  action="department_delete?id=%{id}">删除</s:a>
+				<td><s:a onClick="return window.confirm('这将删除所有的下级部门，您确定要删除吗？')"  action="department_delete?id=%{id}&parentId=%{parentId}">删除</s:a>
 					<s:a action="department_editUI?id=%{id}">修改</s:a>
 				</td>
 			</tr>
@@ -59,7 +60,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!-- 其他功能超链接 -->
     <div id="TableTail">
         <div id="TableTail_inside">
-            <s:a action="department_addUI"><img src="${pageContext.request.contextPath}/style/images/createNew.png" /></s:a>
+            <s:a action="department_addUI?parentId=%{parentId}"><img src="${pageContext.request.contextPath}/style/images/createNew.png" /></s:a>
+        	<s:a action="department_list?parentId=%{#parent.parent.id}"><IMG SRC="${pageContext.request.contextPath}/style/blue/images/button/ReturnToPrevLevel.png" /></s:a>
         </div>
     </div>
 </div>
