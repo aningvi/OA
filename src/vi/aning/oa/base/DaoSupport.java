@@ -2,7 +2,7 @@ package vi.aning.oa.base;
 
 import java.util.List;
 
-public interface BaseDao<T> {
+public interface DaoSupport<T> {
 
 	/**
 	 * 保存实体
@@ -23,7 +23,7 @@ public interface BaseDao<T> {
 	 * 
 	 * @param entity
 	 */
-	void edit(T entity);
+	void update(T entity);
 
 	/**
 	 * 按id查询

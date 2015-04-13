@@ -1,10 +1,10 @@
 package vi.aning.oa.dao.impl;
 
-import vi.aning.oa.base.BaseDaoImpl;
+import vi.aning.oa.base.DaoSupportImpl;
 import vi.aning.oa.dao.UserDao;
 import vi.aning.oa.domain.User;
 
-
-public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
+@Deprecated
+public class UserDaoImpl extends DaoSupportImpl<User> implements UserDao {
 
 }

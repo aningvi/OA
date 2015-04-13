@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import vi.aning.oa.base.BaseAction;
 import vi.aning.oa.domain.Department;
 import vi.aning.oa.domain.Role;
 import vi.aning.oa.service.DepartmentService;
@@ -18,16 +19,12 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 @Controller
 @Scope("prototype")
-public class DepartmentAction extends ActionSupport  implements ModelDriven<Department>{
-	@Resource
-	private DepartmentService departmentService;
-	private Department model = new Department();
+public class DepartmentAction extends BaseAction<Department>{
+	
 	private Long parentId;
 	
 	
-	public Department getModel() {
-		return model;
-	}
+	
 	public String list() throws Exception {
 //		List<Department> departmentList = departmentService.findAll();
 //		ActionContext.getContext().put("departmentList", departmentList);
@@ -50,7 +47,9 @@ public class DepartmentAction extends ActionSupport  implements ModelDriven<Depa
 	}
 	public String addUI() throws Exception {
 		//准备数据，departmentList
-		List<Department> departmentList = departmentService.findAll();
+//		List<Department> departmentList = departmentService.findAll();
+		List<Department> topList = departmentService.findTopList();
+		List<Department> departmentList = DepartmentUtil.getAllDepartments(topList);
 		ActionContext.getContext().put("departmentList", departmentList);
 		return "saveUI";
 	}
@@ -67,7 +66,8 @@ public class DepartmentAction extends ActionSupport  implements ModelDriven<Depa
 		return "toList";
 	}
 	public String editUI() throws Exception {
-		List<Department> departmentList = departmentService.findAll();
+		List<Department> topList = departmentService.findTopList();
+		List<Department> departmentList = DepartmentUtil.getAllDepartments(topList);
 		ActionContext.getContext().put("departmentList", departmentList);
 		
 		Department department = departmentService.getById(model.getId());
@@ -76,11 +76,6 @@ public class DepartmentAction extends ActionSupport  implements ModelDriven<Depa
 			parentId = department.getParent().getId();
 		}
 		return "saveUI";
-	}
-	public RoleService getRoleService() {
-		return null;
-	}
-	public void setRoleService(RoleService roleService) {
 	}
 	public Long getParentId() {
 		return parentId;
