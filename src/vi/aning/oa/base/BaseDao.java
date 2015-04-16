@@ -23,7 +23,7 @@ public interface BaseDao<T> {
 	 * 
 	 * @param entity
 	 */
-	void update(T entity);
+	void edit(T entity);
 
 	/**
 	 * 按id查询

@@ -35,7 +35,7 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 		getSession().save(entity);
 	}
 
-	public void update(T entity) {
+	public void edit(T entity) {
 		getSession().update(entity);
 	}
 
